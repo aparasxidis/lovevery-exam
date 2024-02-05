@@ -14,7 +14,7 @@ Configuration in this directory creates a multi-stage docker image for a Ruby on
 | kubernetes cluster | >= 1.29.1 |
 | helm | >= 3.11.3 |
 
-- Public Docker Hub Repository already created
+- Public Docker Hub Repository already created: https://hub.docker.com/repository/docker/aparasxidis/lovevery/general
 - Local kubernetes cluster
 **Note:** The following steps were tested using kubernetes single node cluster provided by docker-desktop in a Windows Subsystem for Linux 
 
