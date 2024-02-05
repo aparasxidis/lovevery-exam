@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: helloworld-ror
+  name: helloworld-ror
+  namespace: lovevery
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helloworld-ror
+  template:
+    metadata:
+      labels:
+        app: helloworld-ror
+    spec:
+      containers:
+      - image: aparasxidis/lovevery:latest #Replace here with your Registry/Repository or Docker Hub username/Repostiory and respective tag 
+        name: helloworld-ror
+        ports:
+          - containerPort: 3000
+            protocol: TCP
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

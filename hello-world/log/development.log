@@ -1,0 +1,40 @@
+Started GET "/" for ::1 at 2024-02-04 10:21:32 -0800
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alonsoparasxidis/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/railties-7.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alonsoparasxidis/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/railties-7.1.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 374)
+Completed 200 OK in 24ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 7736)
+
+
+Started GET "/" for ::1 at 2024-02-04 10:28:49 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alonsoparasxidis/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/railties-7.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alonsoparasxidis/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/railties-7.1.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | Allocations: 374)
+Completed 200 OK in 12ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 4362)
+
+
+Started GET "/hello_world" for ::1 at 2024-02-04 10:28:56 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/hello_world"):
+  
+Started GET "/hello_world/index" for ::1 at 2024-02-04 10:29:26 -0800
+Processing by HelloWorldController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering hello_world/index.html.erb within layouts/application
+  Rendered hello_world/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 96)
+  Rendered layout layouts/application.html.erb (Duration: 212.5ms | Allocations: 94598)
+Completed 200 OK in 215ms (Views: 214.0ms | ActiveRecord: 0.0ms | Allocations: 95508)
+
+
+Started GET "/hello_world/index" for ::1 at 2024-02-04 10:30:22 -0800
+Processing by HelloWorldController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering hello_world/index.html.erb within layouts/application
+  Rendered hello_world/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 97)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 15802)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 16719)
+
+

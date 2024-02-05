@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: helloworld-ror
+  name: helloworld-ror
+  namespace: lovevery
+spec:
+  ports:
+  - name: web
+    port: 8080
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: helloworld-ror
