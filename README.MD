@@ -16,7 +16,6 @@ Configuration in this directory creates a multi-stage docker image for a Ruby on
 
 - Public Docker Hub Repository already created
 - Local kubernetes cluster
-
 **Note:** The following steps were tested using kubernetes single node cluster provided by docker-desktop in a Windows Subsystem for Linux 
 
 ## Usage
