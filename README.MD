@@ -14,9 +14,8 @@ Configuration in this directory creates a multi-stage docker image for a Ruby on
 | kubernetes cluster | >= 1.29.1 |
 | helm | >= 3.11.3 |
 
-- Public Docker Hub Repository already created
+- Public Docker Hub Repository already created: https://hub.docker.com/repository/docker/aparasxidis/lovevery/general
 - Local kubernetes cluster
-
 **Note:** The following steps were tested using kubernetes single node cluster provided by docker-desktop in a Windows Subsystem for Linux 
 
 ## Usage
@@ -132,12 +131,13 @@ One of the native ways for handling multiple terraform state files is using Terr
 To see what is deployed in each environment, you can browse to the file terragrunt.hcl in the live folder, and to make changes in one of these environments you can run terragrunt commands that are equivalent to terraform commands. Each environment will have its own statefile and you will have a centralized repository/directory where you can actually see all your environment infrastructure instead of using terraform workspace to switch between environments.
 
 ## HOW TO manage terraform variables and secrets
-For managing variables the most easy way is to have a file, lets call it, ```variables.tf```, where all our variables are defined. Other option is make use of ```.tfvars``` file to have different values for different environments and passing to terraform commands using the ```-var-file``` flag, like so: ```terraform plan -var-file="prod.tfvars"```.
+For managing variables the most easy way is to have a file, lets call it, ```variables.tf```, where all our variables are defined. Other option is make use of ```.tfvars``` file to have different values for different environments and passing to terraform commands using the ```-var-file``` flag, like so: ```terraform plan -var-file="prod.tfvars"```. We could also define environment variables with ```TF_VAR_``` prefix.
 For managing secrets, first of all, a secure remote backend should be used, e.g. AWS S3, this is where the different Terraform state files will reside, one of the key feature of using a secure remote backend like an S3 bucket is that provides encryption to the sensitive information that is store in the state file.
 Secure approaches regarding secrets are the following:
 - Encrypting files with AWS KMS: Create a KMS key and use it to encrypt a file, this file will contain your secrets. Commit this file to your VCS, and use a terraform data source called ```aws_kms_secrets``` to fetch the encrypted data and then decrypt it to be referenced in your terraform configuration files.
 - Using a secret store AWS Secrets Manager: The idea of using a secret store is that this will be place where you will create/store secrets, the secrets are encrypted by specifying a KMS key, but without the need of the initial encryption required in the previous approach, but similar as the other approach, for the secrets to be used you will need to make use of a data source ```aws_secretsmanager_secret``` and from there reference them in your configuration files.
 - Mask sensitive values: Make use of the attribute named ```sensitive = true``` to mask values that you know are sensitive in the variable or output resources.
+- If we are talking about CI/CD we could make use of the secret management systems that already comes with the system, e.g. GitHub Actions has Repository and Environment specific secrets and variables that you can define and make use in your workflow/jobs as ```${{ secrets.SuperSecret }}```.
 
 ## HOW TO test this infrastructure
 - Linting: Checking for syntax and style errors, using the native ```terraform fmt```, or open source tools, TFLint
