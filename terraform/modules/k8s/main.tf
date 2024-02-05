@@ -54,7 +54,8 @@ resource "kubernetes_service" "_" {
             app = kubernetes_deployment._.spec.0.template.0.metadata.0.labels.app
         }
         port {
-            port = var.svc_port
+            port        = var.svc_port
+            target_port = var.container_port
         }
     }
 }
