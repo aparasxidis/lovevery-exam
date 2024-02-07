@@ -16,7 +16,7 @@ Configuration in this directory creates a multi-stage docker image for a Ruby on
 
 - Public Docker Hub Repository already created: https://hub.docker.com/repository/docker/aparasxidis/lovevery/general
 - Local kubernetes cluster
-**Note:** The following steps were tested using kubernetes single node cluster provided by docker-desktop in a Windows Subsystem for Linux 
+**Note:** The following steps were tested using kubernetes single node cluster provided by docker-desktop in a Windows Subsystem for Linux and Mac Apple Silicon M2
 
 ## Usage
 ### Build docker image and create docker container
